@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WaterScript : MonoBehaviour {
+public class WaterScript : SeasonObject {
 
-	// Use this for initialization
-	void Start () {
-	
+	BoxCollider2D iceCollider;
+
+	void Start(){
+		iceCollider = GetComponent<BoxCollider2D> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+
+	public override void _HandleSeasonChange(Season newSeason){
+		switch (newSeason) {
+		case Season.Winter:
+			break;
+		default:
+			
+			break;
+		}
 	}
 }

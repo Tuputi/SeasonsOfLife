@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SeasonObject : MonoBehaviour {
+public abstract class SeasonObject : MonoBehaviour {
 
-	Season state;
-
-
-	public void ChangeSeason(Season ){
+	Season SeasonState;
 
 
+	public void ChangeSeason(Season newSeason){
+
+		this.SeasonState = newSeason;
+		_HandleSeasonChange (newSeason);
 	}
+
+	public abstract void _HandleSeasonChange (Season newSeason);
+
+
 		
 }
 
