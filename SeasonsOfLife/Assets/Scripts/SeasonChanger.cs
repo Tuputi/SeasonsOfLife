@@ -9,12 +9,35 @@ public class SeasonChanger : MonoBehaviour {
     public List<SeasonObject> mySeasonObjects;
     public GameObject GameObjectHolder;
 
+    int seasonINt = 0;
+
+
+    void Awake()
+    {
+        InitiateSeasonObjects();
+    }
+
+
 
     public void InitiateSeasonObjects()
     {
-        for(int i = GameObjectHolder.transform.childCount; i > 0; i--)
+        mySeasonObjects = new List<SeasonObject>();
+        for(int i = GameObjectHolder.transform.childCount-1; i >= 0; i--)
         {
             mySeasonObjects.Add(GameObjectHolder.transform.GetChild(i).GetComponent<SeasonObject>());
+        }
+    }
+
+    void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            ChangeSeason((Season)seasonINt);
+            seasonINt++;
+            if(seasonINt > 3)
+            {
+                seasonINt = 0;
+            }
         }
     }
 

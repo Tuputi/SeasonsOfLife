@@ -14,6 +14,7 @@ public abstract class SeasonObject : MonoBehaviour {
 
 	public abstract void _HandleSeasonChange (Season newSeason);
 
+    
 
 		
 }
