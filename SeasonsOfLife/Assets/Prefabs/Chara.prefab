@@ -81,6 +81,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012470884424}
   - 212: {fileID: 212000014097029644}
+  - 114: {fileID: 114000012464296868}
   m_Layer: 0
   m_Name: Chara
   m_TagString: Untagged
@@ -176,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011693680308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.77, y: -2.37, z: 10}
+  m_LocalPosition: {x: -0.8499999, y: -0.49, z: 10}
   m_LocalScale: {x: 0.36661655, y: 0.3029303, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -186,6 +187,17 @@ Transform:
   - {fileID: 4000012038574538}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000012464296868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011693680308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27255fcca2d6ca44b140e8afcd3cbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000011396464742
 SpriteRenderer:
   m_ObjectHideFlags: 1
