@@ -11,5 +11,6 @@ public class SeasonBackground : SeasonObject {
             transform.GetChild(i).gameObject.SetActive(false);
         }
         transform.FindChild(newSeason.ToString()).gameObject.SetActive(true);
+        transform.SetAsFirstSibling();
     }
 }
