@@ -11,7 +11,7 @@ public abstract class GenericAnimal : MonoBehaviour
 	public int Soulpower {
 		get;
 
-		private set;
+		protected set;
 	}
 
 	void FixedUpdate(){
