@@ -51,13 +51,11 @@ public class CharacterControler : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(transform.position+(Vector3.up*1f), -Vector2.up, groundRaycastDistance, groundLayers);
 		Vector3 normal;
 		if (hit.collider != null) {
-			float distance = Mathf.Abs (hit.point.y - transform.position.y);
-			normal = hit.normal;
+						normal = hit.normal;
 		} else {
 			normal = Vector3.up;
 		}
 
-		//float step = rotationSpeed * Time.fixedDeltaTime;
 
 		transform.up = Vector3.Lerp(transform.up, normal, 1/rotationSmooth);
 
