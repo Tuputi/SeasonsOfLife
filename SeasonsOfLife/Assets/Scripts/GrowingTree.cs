@@ -27,6 +27,12 @@ public class GrowingTree : SeasonObject {
     {
         if (Grown)
         {
+            for (int i = 3; i >= 0; i--)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            transform.FindChild(newSeason.ToString()).gameObject.SetActive(true);
+            transform.SetAsFirstSibling();
             return;
         }
         if(GrowthStateInt >= 2)

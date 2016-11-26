@@ -2,4 +2,4 @@
 using System.Collections;
 
 
-public enum Season { Summer, Spring, Autumn, Winter };
+public enum Season { Spring, Summer, Autumn, Winter };
