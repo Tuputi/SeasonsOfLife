@@ -16,6 +16,7 @@ public class GrowingTree : SeasonObject {
 
     protected override void _HandleSeasonChange(Season newSeason)
     {
+        HandleTriggerEvent(false);
         if (Grown)
         {
             for (int i = 3; i >= 0; i--)
@@ -43,9 +44,10 @@ public class GrowingTree : SeasonObject {
 
     public override bool HandleTriggerEvent(bool enter)
     {
-        if (!Grown)
+        if (!Grown || SeasonChanger.instance.CurrentSeason!=Season.Autumn)
         {
             //no interaction
+            InteractionScript.InteractionCancelled();
             return false;
         }
 

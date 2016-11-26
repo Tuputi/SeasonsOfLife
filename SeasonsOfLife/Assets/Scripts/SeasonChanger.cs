@@ -8,6 +8,7 @@ public class SeasonChanger : MonoBehaviour {
 
     public List<SeasonObject> mySeasonObjects;
     public GameObject GameObjectHolder;
+    public static SeasonChanger instance;
 
     int seasonINt = 0;
 
@@ -15,6 +16,7 @@ public class SeasonChanger : MonoBehaviour {
     void Awake()
     {
         InitiateSeasonObjects();
+        instance = this;
     }
 
 
@@ -47,5 +49,6 @@ public class SeasonChanger : MonoBehaviour {
         {
             so.ChangeSeason(toSeason);
         }
+        CurrentSeason = toSeason;
     }
 }
