@@ -52,6 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySeasonsGraphics: []
-  CurrentSeason: 0
+  CurrentSeason: 1
   mySeasonObjects: []
   GameObjectHolder: {fileID: 0}

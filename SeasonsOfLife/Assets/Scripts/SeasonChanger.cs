@@ -17,6 +17,7 @@ public class SeasonChanger : MonoBehaviour {
     {
         InitiateSeasonObjects();
         instance = this;
+        seasonINt = (int)CurrentSeason+1;
     }
 
 
