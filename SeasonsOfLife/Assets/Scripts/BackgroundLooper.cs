@@ -12,6 +12,9 @@ public class BackgroundLooper : MonoBehaviour {
 
 	public float playerFollowSpeed = 0;
 
+	Vector3 playerLastPos;
+
+
 	void Start () {
 		leftCopy = new GameObject ();
 		rightCopy = new GameObject ();
@@ -28,12 +31,17 @@ public class BackgroundLooper : MonoBehaviour {
 		leftCopy.transform.position = this.transform.position;
 		rightCopy.transform.position = this.transform.position;
 
+		leftCopy.transform.parent = this.transform.parent;
+		rightCopy.transform.parent = this.transform.parent;
+
 		leftCopy.transform.position += Vector3.left * spriteWidth;
 		rightCopy.transform.position += Vector3.right * spriteWidth;
 
 
 		leftCopy.GetComponent<SpriteRenderer> ().sprite = thisSprite.sprite;
 		rightCopy.GetComponent<SpriteRenderer> ().sprite = thisSprite.sprite;
+
+		playerLastPos = player.transform.position;
 
 	}
 
@@ -52,7 +60,9 @@ public class BackgroundLooper : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (playerFollowSpeed != 0) {
-			float followDirX = (player.GetComponent<Rigidbody2D> ().velocity.x * Time.fixedDeltaTime) * playerFollowSpeed;
+			Vector3 playerVel = player.transform.position - playerLastPos;
+			playerLastPos = player.transform.position;
+			float followDirX = (playerVel.x) * playerFollowSpeed;
 			Vector3 followDir = new Vector3 (followDirX, 0, 0);
 			transform.position += followDir;
 			leftCopy.transform.position += followDir;
