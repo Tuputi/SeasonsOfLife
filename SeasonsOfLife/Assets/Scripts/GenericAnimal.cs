@@ -16,9 +16,8 @@ public abstract class GenericAnimal : SeasonObject
 
 	void FixedUpdate(){
 
-		if (!dead) {
-			AI ();
-		}
+		AI ();
+
 	}
 
 	public int Kill(){

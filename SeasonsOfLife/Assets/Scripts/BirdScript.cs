@@ -29,16 +29,23 @@ public class BirdScript : GenericAnimal {
 		targetHeight = transform.position.y;
 
 		rBody = GetComponent<Rigidbody2D> ();
+
+
 	}
 
 
 	protected override void AI ()
 	{
 		if (dead) {
+			animator.SetBool ("ded", true);
+
 			return;
 		}
 
+
 		if (flying) {
+			animator.SetBool ("ded", false);
+
 			transform.rotation = Quaternion.Euler (new Vector3 (0, 0, (Mathf.Sin (Time.time * wobblyness) * wobblyAngle)));
 			transform.position = transform.position + (flyDir * flySpeed) * Time.fixedDeltaTime;
 
@@ -51,8 +58,10 @@ public class BirdScript : GenericAnimal {
 
 		if (transform.position.x > rightBound) {
 			flyDir = new Vector3(-1,0,0);
+			transform.localScale = new Vector3 (-1, 1, 1);
 		} else if (transform.position.x < leftBound) {
 			flyDir = new Vector3(1,0,0);
+			transform.localScale = new Vector3 (1, 1, 1);
 		}
 	}
 
@@ -65,11 +74,13 @@ public class BirdScript : GenericAnimal {
 		transform.FindChild(newSeason.ToString()).gameObject.SetActive(true);
 
 		switch (newSeason) {
-			case Season.Winter:
+		case Season.Winter:
 				flying = false;
+				animator.SetBool ("ded", true);
 				break;
 			default:
 				flying = true;
+				animator.SetBool ("ded", false);
 				break;
 		}
 	}
