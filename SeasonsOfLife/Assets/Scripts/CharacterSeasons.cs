@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CharacterSeasons : SeasonObject {
 
@@ -11,5 +12,15 @@ public class CharacterSeasons : SeasonObject {
         }
         transform.FindChild(newSeason.ToString()).gameObject.SetActive(true);
         transform.SetAsFirstSibling();
+    }
+
+    public override bool HandleTriggerEvent(bool enter)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void HandleInteraction()
+    {
+        throw new NotImplementedException();
     }
 }

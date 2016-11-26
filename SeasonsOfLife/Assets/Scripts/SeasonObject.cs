@@ -13,9 +13,11 @@ public abstract class SeasonObject : MonoBehaviour {
 	}
 
 	protected abstract void _HandleSeasonChange (Season newSeason);
+    public abstract bool HandleTriggerEvent(bool enter);
+    public abstract void HandleInteraction();
 
-    
 
-		
+
+
 }
 
