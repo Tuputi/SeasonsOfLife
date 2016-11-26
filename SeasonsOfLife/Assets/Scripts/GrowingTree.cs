@@ -58,5 +58,6 @@ public class GrowingTree : SeasonObject {
     public override void HandleInteraction()
     {
         Debug.Log("Falling");
+        GetComponent<Animator>().SetBool("Falling", true);
     }
 }

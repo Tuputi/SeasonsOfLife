@@ -703,6 +703,7 @@ GameObject:
   - 4: {fileID: 1464919180}
   - 212: {fileID: 1464919179}
   - 114: {fileID: 1464919181}
+  - 95: {fileID: 1464919182}
   m_Layer: 0
   m_Name: tree
   m_TagString: Untagged
@@ -750,9 +751,9 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1464919178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31, y: 0.34, z: 0}
+  m_LocalPosition: {x: -3.31, y: -2.34, z: 0}
   m_LocalScale: {x: 0.65472364, y: 0.6961562, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.455533}
   m_Children:
   - {fileID: 1310265047}
   m_Father: {fileID: 0}
@@ -770,6 +771,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grown: 1
   growthStages: []
+--- !u!95 &1464919182
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464919178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46b4df8f5de8bc54096dd77c0897595c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1660380144
 GameObject:
   m_ObjectHideFlags: 0
