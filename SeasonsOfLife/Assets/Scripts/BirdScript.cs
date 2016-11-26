@@ -12,6 +12,9 @@ public class BirdScript : GenericAnimal {
 	Vector3 flyDir = new Vector3(1,0,0);
 	float flySpeed = 1f;
 
+	public float leftBound = -10;
+	public float rightBound = 10;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -25,9 +28,9 @@ public class BirdScript : GenericAnimal {
 			transform.position = transform.position + (flyDir * flySpeed)*Time.fixedDeltaTime;
 		}
 
-		if (transform.position.x > 3) {
+		if (transform.position.x > rightBound) {
 			flyDir = new Vector3(-1,0,0);
-		} else if (transform.position.x < -4) {
+		} else if (transform.position.x < leftBound) {
 			flyDir = new Vector3(1,0,0);
 		}
 	}
