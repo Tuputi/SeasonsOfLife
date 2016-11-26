@@ -5,21 +5,17 @@ using System;
 public class GrowingTree : SeasonObject {
 
     public bool Grown = true;
+    public bool Fallen = false;
     public Sprite[] growthStages;
     private Sprite mySprite;
     private int GrowthStateInt = 0;
     BoxCollider2D treeCollider;
-    bool interect; 
+    public BoxCollider2D bridgeCollider;
 
     void Awake()
     {
         mySprite = this.GetComponent<SpriteRenderer>().sprite;
-        treeCollider = GetComponent<BoxCollider2D>();
-
-        interect = !(SeasonState == (Season.Winter));
-        treeCollider.enabled = interect; 
-      
-
+        bridgeCollider = this.GetComponent<BoxCollider2D>();
     }
 
 
@@ -52,16 +48,12 @@ public class GrowingTree : SeasonObject {
 
     public override bool HandleTriggerEvent(bool enter)
     {
-        if (!Grown)
+        if (!Grown || SeasonChanger.instance.CurrentSeason!=Season.Autumn || Fallen)
         {
             //no interaction
             return false;
         }
 
-
-        if (interect)
-        {
-            //enter or exit trigger area?
             if (enter)
             {
                 InteractionScript.InteractionPossible(this);
@@ -70,8 +62,6 @@ public class GrowingTree : SeasonObject {
             {
                 InteractionScript.InteractionCancelled();
             }
-        }
-
       
         return true;
     }
@@ -80,8 +70,11 @@ public class GrowingTree : SeasonObject {
     {
         Debug.Log("Falling");
         GetComponent<Animator>().SetBool("Falling", true);
-
-
-
+        Fallen = true;
     }
+
+    public void activateCollider() {
+        bridgeCollider.isTrigger = false;
+    }
+
 }
