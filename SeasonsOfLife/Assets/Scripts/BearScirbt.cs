@@ -2,10 +2,7 @@
 using System.Collections;
 using System;
 
-public class BearScript : GenericAnimal {
-
-	bool flying = true;
-
+public class BearScirbt : GenericAnimal {
 
 	Vector3 walkDir = new Vector3(1,0,0);
 	float walkSpeed = 1f;
@@ -31,7 +28,9 @@ public class BearScript : GenericAnimal {
 		}
 
 		if (transform.position.x < rightBound) {
-			transform.position += Vector3.right / Time.fixedDeltaTime * walkSpeed;
+			
+			transform.position = transform.position + walkDir * Time.fixedDeltaTime * walkSpeed;
+
 			if (animator != null)
 				animator.SetBool ("walking", true);
 		} else {

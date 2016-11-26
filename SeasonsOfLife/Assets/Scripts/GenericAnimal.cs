@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class GenericAnimal : SeasonObject
 {
-	protected bool dead;
+	public bool dead;
 
 	public Animator animator;
 
