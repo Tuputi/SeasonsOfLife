@@ -23,7 +23,7 @@ public abstract class GenericAnimal : MonoBehaviour
 
 	public int Kill(){
 		dead = true;
-		animator.SetTrigger ("die", true);
+		animator.SetTrigger ("die");
 		return Soulpower;
 	}
 
