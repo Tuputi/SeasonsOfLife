@@ -159,11 +159,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 50000013964971700, guid: 08115b307e61fc04e9456da51570b72c,
-        type: 2}
-      propertyPath: m_Mass
-      value: 3.1695442
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08115b307e61fc04e9456da51570b72c, type: 2}
   m_IsPrefabParent: 0
@@ -314,7 +309,7 @@ GameObject:
   - 4: {fileID: 420462339}
   - 212: {fileID: 420462338}
   - 61: {fileID: 420462337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
