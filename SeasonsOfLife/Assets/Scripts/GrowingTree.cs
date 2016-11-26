@@ -17,7 +17,7 @@ public class GrowingTree : SeasonObject {
         treeCollider = GetComponent<BoxCollider2D>();
 
         interect = !(SeasonState == (Season.Winter));
-        treeCollider.enabled = interect; 
+        treeCollider.enabled = !interect; 
       
 
     }
@@ -80,8 +80,6 @@ public class GrowingTree : SeasonObject {
     {
         Debug.Log("Falling");
         GetComponent<Animator>().SetBool("Falling", true);
-
-
 
     }
 }
