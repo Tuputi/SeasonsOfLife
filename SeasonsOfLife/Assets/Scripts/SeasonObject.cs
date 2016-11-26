@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class SeasonObject : MonoBehaviour {
 
-	Season SeasonState;
+	protected Season SeasonState;
 
 
 	public void ChangeSeason(Season newSeason){
@@ -12,7 +12,7 @@ public abstract class SeasonObject : MonoBehaviour {
 		_HandleSeasonChange (newSeason);
 	}
 
-	public abstract void _HandleSeasonChange (Season newSeason);
+	protected abstract void _HandleSeasonChange (Season newSeason);
 
     
 
