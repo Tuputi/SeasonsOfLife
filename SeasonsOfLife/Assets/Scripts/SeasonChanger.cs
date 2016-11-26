@@ -30,7 +30,7 @@ public class SeasonChanger : MonoBehaviour {
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ChangeSeason((Season)seasonINt);
             seasonINt++;
