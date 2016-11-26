@@ -16,8 +16,8 @@ public class GrowingTree : SeasonObject {
     void Awake()
     {
         mySprite = this.GetComponent<SpriteRenderer>().sprite;
-        bridgeCollider = this.GetComponent<BoxCollider2D>();
-        blockCollider = this.transform.FindChild("BlockCollider").GetComponent<BoxCollider2D>();
+		if(bridgeCollider == null)bridgeCollider = this.GetComponent<BoxCollider2D>();
+		if(blockCollider == null)blockCollider = this.transform.FindChild("BlockCollider")!=null? this.transform.FindChild("BlockCollider").GetComponent<BoxCollider2D>() : null;
     }
 
 
@@ -76,8 +76,8 @@ public class GrowingTree : SeasonObject {
     }
 
     public void activateCollider() {
-        bridgeCollider.isTrigger = false;
-        blockCollider.isTrigger = true;
+		if(bridgeCollider!=null)bridgeCollider.isTrigger = false;
+		if(blockCollider!=null)blockCollider.isTrigger = true;
     }
 
 }

@@ -27,6 +27,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000010763411946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012736796278}
+  m_Layer: 0
+  m_Name: grappoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000010912287504
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +103,7 @@ GameObject:
   - 61: {fileID: 61000013000300740}
   - 95: {fileID: 95000011995460666}
   - 114: {fileID: 114000011108235412}
+  - 114: {fileID: 114000010138180656}
   m_Layer: 0
   m_Name: Chara
   m_TagString: Untagged
@@ -183,16 +199,30 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011693680308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9700003, y: 0.34000003, z: 10}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -3.25, y: 2.42, z: 10}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011114914242}
   - {fileID: 4000010934609546}
   - {fileID: 4000012330293510}
   - {fileID: 4000012038574538}
+  - {fileID: 4000012736796278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &4000012736796278
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010763411946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.14, y: 6.99, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000012470884424}
+  m_RootOrder: 4
 --- !u!50 &50000013964971700
 Rigidbody2D:
   serializedVersion: 2
@@ -201,7 +231,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011693680308}
   m_UseAutoMass: 1
-  m_Mass: 3.3751616
+  m_Mass: 2.1601036
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 10
@@ -269,6 +299,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010138180656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011693680308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9299085beea142458c8b6e10b163ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
+  distance: 2
+  holdpoint: {fileID: 4000012736796278}
+  throwforce: 4
+  notgrabbed:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114000011108235412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -280,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11462866f39cf92418cb746a5b8bf3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soulPoints: 0
   groundRaycastDistance: 2
   rotationSmooth: 10
 --- !u!114 &114000012464296868
