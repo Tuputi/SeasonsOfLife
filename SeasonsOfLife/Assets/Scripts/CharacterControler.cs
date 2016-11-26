@@ -6,6 +6,8 @@ public class CharacterControler : MonoBehaviour {
     float maxSpeed = 10f;
     bool facingRight = true;
 
+	public int soulPoints = 0;
+
     Animator anim;
 
 

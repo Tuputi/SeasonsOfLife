@@ -2,9 +2,9 @@
 using UnityEngine;
 
 
-public abstract class GenericAnimal : MonoBehaviour
+public abstract class GenericAnimal : SeasonObject
 {
-	private bool dead;
+	protected bool dead;
 
 	public Animator animator;
 
@@ -23,17 +23,47 @@ public abstract class GenericAnimal : MonoBehaviour
 
 	public int Kill(){
 		dead = true;
-		animator.SetTrigger ("die");
+		//animator.SetTrigger ("die");
 		return Soulpower;
 	}
 
 	public void Revive(){
-		animator.SetTrigger ("revive");
+		//animator.SetTrigger ("revive");
 
 		dead = false;
 	}
 
 	protected abstract void AI ();
+
+	public override void HandleInteraction()
+	{
+		CharacterControler player = FindObjectOfType<CharacterControler> ();
+		Debug.Log ("player points: " + player.soulPoints);
+		if (!dead) {
+			player.soulPoints += this.Kill ();
+		} else{
+			if (player.soulPoints >= this.Soulpower) {
+				player.soulPoints -= this.Soulpower;
+				this.Revive ();
+			}
+		}
+	}
+
+	public override bool HandleTriggerEvent(bool enter)
+	{
+		if (enter)
+		{
+			InteractionScript.InteractionPossible(this);
+		}
+		else
+		{
+			InteractionScript.InteractionCancelled();
+		}
+
+		return true;
+	}
+
+
 }
 
 
