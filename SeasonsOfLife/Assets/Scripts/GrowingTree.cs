@@ -12,7 +12,7 @@ public class GrowingTree : SeasonObject {
         mySprite = this.GetComponent<SpriteRenderer>().sprite;
     }
 
-    public override void _HandleSeasonChange(Season newSeason)
+    protected override void _HandleSeasonChange(Season newSeason)
     {
         if(GrowthStateInt >= 2)
         {

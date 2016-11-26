@@ -4,7 +4,7 @@ using System.Collections;
 public class SeasonBackground : SeasonObject {
 
 
-    public override void _HandleSeasonChange(Season newSeason)
+    protected override void _HandleSeasonChange(Season newSeason)
     {
         for(int i = 3; i >= 0; i--)
         {
