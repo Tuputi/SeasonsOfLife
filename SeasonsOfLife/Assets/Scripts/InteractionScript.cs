@@ -5,7 +5,16 @@ public class InteractionScript : MonoBehaviour {
 
    static bool waitingForInput = false;
    static SeasonObject objectWaitingInteraction;
-	
+   public GameObject InteractPrompt;
+   static GameObject myInteractiPrompt;
+
+
+    void Start()
+    {
+        myInteractiPrompt = InteractPrompt;
+        myInteractiPrompt.SetActive(false);
+    }
+
     void Update() {
         if (waitingForInput)
         {
@@ -21,11 +30,19 @@ public class InteractionScript : MonoBehaviour {
         Debug.Log("Interaction possible");
         waitingForInput = true;
         objectWaitingInteraction = with;
+
+        myInteractiPrompt.SetActive(true);
+
+        Vector3 temp = Camera.main.WorldToScreenPoint(with.transform.position);
+        myInteractiPrompt.transform.position = new Vector3(temp.x, 100, 0);
+        myInteractiPrompt.transform.SetAsLastSibling();
+        
     }
 
     public static void InteractionCancelled()
     {
         Debug.Log("cancel");
+        myInteractiPrompt.SetActive(false);
         waitingForInput = false;
         objectWaitingInteraction = null;
     }
