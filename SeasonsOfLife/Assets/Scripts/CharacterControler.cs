@@ -22,6 +22,7 @@ public class CharacterControler : MonoBehaviour {
 
 		GameObject refgo = new GameObject ();
 		refgo.name = "Jus' chillin. Ignore me. (Created from CharacterController)";
+		refgo.hideFlags = HideFlags.HideInHierarchy;
 		refTransform = refgo.transform;
     }
 	void Update(){

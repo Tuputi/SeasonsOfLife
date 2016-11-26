@@ -17,7 +17,7 @@ public class BirdScript : GenericAnimal {
 
 	// Use this for initialization
 	void Start () {
-		
+		Soulpower = 1;
 	}
 
 
