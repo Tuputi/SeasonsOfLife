@@ -25,7 +25,7 @@ public class GrowingTree : SeasonObject {
     {
         if (Grown)
         {
-            for (int i = 3; i >= 0; i--)
+            for (int i = growthStages.Length-1; i >= 0; i--)
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
