@@ -8,11 +8,20 @@ public class GrowingTree : SeasonObject {
     public Sprite[] growthStages;
     private Sprite mySprite;
     private int GrowthStateInt = 0;
+    BoxCollider2D treeCollider;
+    bool interect; 
 
     void Awake()
     {
         mySprite = this.GetComponent<SpriteRenderer>().sprite;
+        treeCollider = GetComponent<BoxCollider2D>();
+
+        interect = !(SeasonState == (Season.Winter));
+        treeCollider.enabled = interect; 
+      
+
     }
+
 
     protected override void _HandleSeasonChange(Season newSeason)
     {
@@ -49,15 +58,21 @@ public class GrowingTree : SeasonObject {
             return false;
         }
 
-        //enter or exit trigger area?
-        if (enter)
+
+        if (interect)
         {
-            InteractionScript.InteractionPossible(this);
+            //enter or exit trigger area?
+            if (enter)
+            {
+                InteractionScript.InteractionPossible(this);
+            }
+            else
+            {
+                InteractionScript.InteractionCancelled();
+            }
         }
-        else
-        {
-            InteractionScript.InteractionCancelled();
-        }     
+
+      
         return true;
     }
 
@@ -65,5 +80,8 @@ public class GrowingTree : SeasonObject {
     {
         Debug.Log("Falling");
         GetComponent<Animator>().SetBool("Falling", true);
+
+
+
     }
 }
