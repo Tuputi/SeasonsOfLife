@@ -7,6 +7,7 @@ public class InteractionScript : MonoBehaviour {
    static SeasonObject objectWaitingInteraction;
    public GameObject InteractPrompt;
    static GameObject myInteractiPrompt;
+   public Animator charaAnim;
 
 
     void Start()
@@ -50,6 +51,7 @@ public class InteractionScript : MonoBehaviour {
     public void InteractionEvent()
     {
         Debug.Log("Event");
+        charaAnim.Play("Interacting",0);
         objectWaitingInteraction.HandleInteraction();
         InteractionCancelled();
     }

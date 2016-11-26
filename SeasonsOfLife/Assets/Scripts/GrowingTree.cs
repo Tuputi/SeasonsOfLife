@@ -6,6 +6,7 @@ public class GrowingTree : SeasonObject {
 
     public bool Grown = true;
     public bool Fallen = false;
+    public bool Bridgeable = false;
     public Sprite[] growthStages;
     private Sprite mySprite;
     private int GrowthStateInt = 0;
@@ -16,8 +17,13 @@ public class GrowingTree : SeasonObject {
     void Awake()
     {
         mySprite = this.GetComponent<SpriteRenderer>().sprite;
-        bridgeCollider = this.GetComponent<BoxCollider2D>();
-        blockCollider = this.transform.FindChild("BlockCollider").GetComponent<BoxCollider2D>();
+  
+        if (Bridgeable)
+        {
+            bridgeCollider = this.GetComponent<BoxCollider2D>();
+            blockCollider = this.transform.FindChild("BlockCollider").GetComponent<BoxCollider2D>();
+        }
+
     }
 
 
@@ -25,7 +31,7 @@ public class GrowingTree : SeasonObject {
     {
         if (Grown)
         {
-            for (int i = growthStages.Length-1; i >= 0; i--)
+            for (int i = 3; i >= 0; i--)
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
@@ -33,7 +39,7 @@ public class GrowingTree : SeasonObject {
             transform.SetAsFirstSibling();
             return;
         }
-        if(GrowthStateInt >= 2)
+        if(GrowthStateInt >= growthStages.Length-1)
         {
             Grown = true;
             Debug.Log("Done growing!");
