@@ -5,6 +5,7 @@ public class TriggerScript : MonoBehaviour {
 
     private SeasonObject parent;
 
+
     void Start()
     {
         parent = transform.parent.GetComponent<SeasonObject>();
