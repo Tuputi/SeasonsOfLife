@@ -756,8 +756,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 743149222}
   - {fileID: 627004760}
+  - {fileID: 743149222}
   - {fileID: 2077843791}
   - {fileID: 732217198}
   m_Father: {fileID: 76569824}
@@ -806,7 +806,7 @@ Transform:
   m_Children:
   - {fileID: 271424694}
   m_Father: {fileID: 480794996}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &732217197
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +864,7 @@ Transform:
   m_Children:
   - {fileID: 266748835}
   m_Father: {fileID: 480794996}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1001 &912115447
 Prefab:
   m_ObjectHideFlags: 0
