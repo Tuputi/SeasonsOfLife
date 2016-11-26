@@ -12,6 +12,7 @@ public class TriggerScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Enter");
         parent.HandleTriggerEvent(true);
     }
 
