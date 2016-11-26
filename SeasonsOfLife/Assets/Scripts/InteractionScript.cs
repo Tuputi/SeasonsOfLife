@@ -6,7 +6,7 @@ public class InteractionScript : MonoBehaviour {
    static bool waitingForInput = false;
    static SeasonObject objectWaitingInteraction;
 	
-    void Update() { 
+    void Update() {
         if (waitingForInput)
         {
             if (Input.GetKeyDown(KeyCode.E))
