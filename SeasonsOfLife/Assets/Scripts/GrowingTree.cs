@@ -9,13 +9,15 @@ public class GrowingTree : SeasonObject {
     public Sprite[] growthStages;
     private Sprite mySprite;
     private int GrowthStateInt = 0;
-    BoxCollider2D treeCollider;
+
     public BoxCollider2D bridgeCollider;
+    public BoxCollider2D blockCollider;
 
     void Awake()
     {
         mySprite = this.GetComponent<SpriteRenderer>().sprite;
         bridgeCollider = this.GetComponent<BoxCollider2D>();
+        blockCollider = this.transform.FindChild("BlockCollider").GetComponent<BoxCollider2D>();
     }
 
 
@@ -23,7 +25,7 @@ public class GrowingTree : SeasonObject {
     {
         if (Grown)
         {
-            for (int i = 3; i >= 0; i--)
+            for (int i = growthStages.Length-1; i >= 0; i--)
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
@@ -75,6 +77,7 @@ public class GrowingTree : SeasonObject {
 
     public void activateCollider() {
         bridgeCollider.isTrigger = false;
+        blockCollider.isTrigger = true;
     }
 
 }
