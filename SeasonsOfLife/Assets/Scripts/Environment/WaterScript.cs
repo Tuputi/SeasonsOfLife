@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent (typeof (BoxCollider2D))]
 
@@ -31,4 +32,14 @@ public class WaterScript : SeasonObject {
 				break;
 		}
 	}
+
+    public override bool HandleTriggerEvent(bool enter)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void HandleInteraction()
+    {
+        throw new NotImplementedException();
+    }
 }
