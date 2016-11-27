@@ -4,12 +4,13 @@ using System;
 
 public class BearScirbt : GenericAnimal {
 
-	Vector3 walkDir = new Vector3(-1,0,0);
+	Vector3 walkDir = new Vector3(1,0,0);
 	float walkSpeed = 1f;
 
 	public float rightBound = 20;
 
 	float targetHeight = 0;
+    bool recetlyAlive = false;
 
 
 	// Use this for initialization
@@ -27,6 +28,11 @@ public class BearScirbt : GenericAnimal {
 			return;
 		} else {
 			transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 0));
+            if (!recetlyAlive)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - 1.2f, transform.position.z);
+                recetlyAlive = true;
+            }
 		}
 
 		if (transform.position.x < rightBound) {
