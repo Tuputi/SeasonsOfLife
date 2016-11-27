@@ -5,7 +5,7 @@ public class GrabberScript : MonoBehaviour {
 
     public bool grabbed;
     RaycastHit2D hit;
-    public float distance = 2f;
+    public float distance = 3f;
     public Transform holdpoint;
     public float throwforce;
     public LayerMask notgrabbed;
@@ -27,7 +27,7 @@ public class GrabberScript : MonoBehaviour {
             {
                 Physics2D.queriesStartInColliders = false;
 
-                hit = Physics2D.Raycast(transform.position + Vector3.up, Vector2.right * transform.localScale.x, distance);
+				hit = Physics2D.Raycast(transform.position + Vector3.up, new Vector2(transform.localScale.x, -0.5f).normalized, distance);
                 if (hit.collider != null && hit.collider.tag == "grabbable")
                 {
                     grabbed = true;
@@ -74,6 +74,6 @@ public class GrabberScript : MonoBehaviour {
         Vector3 v = transform.position;
 
 
-        Gizmos.DrawLine(transform.position + Vector3.up, transform.position + Vector3.up + Vector3.right * transform.localScale.x * distance);
+		Gizmos.DrawLine(transform.position + Vector3.up, transform.position + Vector3.up*0.5f + Vector3.right * transform.localScale.x * distance);
     }
 }

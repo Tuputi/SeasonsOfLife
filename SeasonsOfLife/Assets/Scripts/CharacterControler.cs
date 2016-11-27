@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CharacterControler : MonoBehaviour {
+
+	public Text soulCounter;
 
     float maxSpeed = 10f;
     bool facingRight = true;
 
+	private int sp = 0;
 	public int soulPoints = 0;
 
     Animator anim;
@@ -28,6 +32,11 @@ public class CharacterControler : MonoBehaviour {
 		refTransform = refgo.transform;
     }
 	void Update(){
+		if (soulPoints != sp) {
+			soulCounter.text = soulPoints + " Souls";
+
+			sp = soulPoints;
+		}
 	}
 
     // Update is called once per frame

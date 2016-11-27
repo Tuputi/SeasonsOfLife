@@ -7,6 +7,7 @@ public abstract class GenericAnimal : SeasonObject
 	public bool dead;
 
 	public Animator animator;
+	public GameObject soulPrefab;
 
 	public int Soulpower {
 		get;
@@ -20,16 +21,29 @@ public abstract class GenericAnimal : SeasonObject
 
 	}
 
-	public int Kill(){
+	public void Kill(){
 		dead = true;
 		//animator.SetTrigger ("die");
-		return Soulpower;
+
+		GameObject soul = GameObject.Instantiate (soulPrefab);
+
+		soul.GetComponent<SoulScript>().SetTargets(transform.position, FindObjectOfType<CharacterControler>().gameObject, 
+			() => {
+				FindObjectOfType<CharacterControler>().soulPoints+=Soulpower;
+			}); 
 	}
 
 	public void Revive(){
 		//animator.SetTrigger ("revive");
 
-		dead = false;
+
+		GameObject soul = GameObject.Instantiate (soulPrefab);
+
+
+		soul.GetComponent<SoulScript>().SetTargets(FindObjectOfType<CharacterControler>().transform.position, gameObject, 
+			() => {
+				dead = false;
+			}); 
 	}
 
 	protected abstract void AI ();
@@ -39,7 +53,7 @@ public abstract class GenericAnimal : SeasonObject
 		CharacterControler player = FindObjectOfType<CharacterControler> ();
 		Debug.Log ("player points: " + player.soulPoints);
 		if (!dead) {
-			player.soulPoints += this.Kill ();
+			this.Kill ();
 		} else{
 			if (player.soulPoints >= this.Soulpower) {
 				player.soulPoints -= this.Soulpower;

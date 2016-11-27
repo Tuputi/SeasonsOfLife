@@ -38,7 +38,7 @@ GameObject:
   - 61: {fileID: 61000013345272406}
   m_Layer: 0
   m_Name: Winter
-  m_TagString: Untagged
+  m_TagString: grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - 60: {fileID: 60000011501168812}
   m_Layer: 0
   m_Name: birb
-  m_TagString: Untagged
+  m_TagString: grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,8 +392,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   animator: {fileID: 95000011973777210}
-  leftBound: 50
-  rightBound: 60
+  soulPrefab: {fileID: 1000013321263566, guid: b538f9483ad70264b971111e2364d3e1, type: 2}
+  leftBound: 70
+  rightBound: 80
 --- !u!114 &114000012392317260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,7 +467,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 015f6a603e88bbf45af6ee026b9b96a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
