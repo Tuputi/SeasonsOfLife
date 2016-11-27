@@ -47,6 +47,10 @@ public class SeasonChanger : MonoBehaviour {
         {
             SceneManager.LoadScene(0);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void ChangeSeason(Season toSeason)
