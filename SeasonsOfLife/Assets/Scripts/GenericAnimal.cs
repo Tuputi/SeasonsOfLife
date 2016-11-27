@@ -8,6 +8,7 @@ public abstract class GenericAnimal : SeasonObject
 
 	public Animator animator;
 	public GameObject soulPrefab;
+    public GameObject notenough;
 
 	public int Soulpower {
 		get;
@@ -59,6 +60,10 @@ public abstract class GenericAnimal : SeasonObject
 				player.soulPoints -= this.Soulpower;
 				this.Revive ();
 			}
+            else
+            {
+                notenough.gameObject.SetActive(true);
+            }
 		}
 	}
 
@@ -75,7 +80,6 @@ public abstract class GenericAnimal : SeasonObject
 
 		return true;
 	}
-
 
 }
 

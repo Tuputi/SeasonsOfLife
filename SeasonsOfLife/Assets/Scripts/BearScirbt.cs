@@ -30,7 +30,7 @@ public class BearScirbt : GenericAnimal {
 			transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 0));
             if (!recetlyAlive)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y - 1.2f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - 1.22f, transform.position.z);
                 recetlyAlive = true;
             }
 		}

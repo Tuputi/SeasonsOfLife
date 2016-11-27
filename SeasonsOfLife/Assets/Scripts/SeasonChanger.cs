@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SeasonChanger : MonoBehaviour {
 
@@ -41,6 +42,10 @@ public class SeasonChanger : MonoBehaviour {
             {
                 seasonINt = 0;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 

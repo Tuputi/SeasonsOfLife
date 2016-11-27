@@ -12,6 +12,7 @@ public class CharacterSeasons : SeasonObject {
         }
         transform.FindChild(newSeason.ToString()).gameObject.SetActive(true);
         transform.SetAsFirstSibling();
+        GetComponent<Rigidbody2D>().WakeUp();
     }
 
     public override bool HandleTriggerEvent(bool enter)

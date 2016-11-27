@@ -14,11 +14,13 @@ public class TriggerScript : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Enter");
-        parent.HandleTriggerEvent(true);
+		if(other.gameObject.GetComponent<CharacterControler>()!=null)
+        	parent.HandleTriggerEvent(true);
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        parent.HandleTriggerEvent(false);
+		if(other.gameObject.GetComponent<CharacterControler>()!=null)
+        	parent.HandleTriggerEvent(false);
     }
 }
