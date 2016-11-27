@@ -75,12 +75,25 @@ public class BirdScript : GenericAnimal {
 
 		switch (newSeason) {
 		case Season.Winter:
-				flying = false;
-				animator.SetBool ("ded", true);
+			flying = false;
+			animator.SetBool ("ded", true);
+			GetComponent<SpriteRenderer> ().enabled = true;
+			foreach (BoxCollider2D bd in GetComponentsInChildren<BoxCollider2D>())
+				bd.enabled = true;
+					break;
+		case Season.Autumn:
+			if (!dead) {
+				GetComponent<SpriteRenderer> ().enabled = false;
+				foreach (BoxCollider2D bd in GetComponentsInChildren<BoxCollider2D>())
+					bd.enabled = false;
+			}
+			
 				break;
 			default:
 				flying = true;
 				animator.SetBool ("ded", false);
+				GetComponent<SpriteRenderer> ().enabled = true;
+
 				break;
 		}
 	}
